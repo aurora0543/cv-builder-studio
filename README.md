@@ -50,10 +50,6 @@ CV Builder Skill/
 │   │   ├── App.css        # 自定义特效样式
 │   │   └── index.css      # 全局排版、网格系统及主题变量
 │   └── package.json       # React App 依赖项配置
-├── latex/                 # 本地 LaTeX 渲染模板依赖
-│   ├── resume.cls         # LaTeX 简历文档模板类
-│   ├── fonts/             # 预置中文字体 (包含 Adobe 宋体等)
-│   └── *.sty              # Noto 字体及线条排版宏包依赖
 ├── schema.json            # 统一约定的标准化 JSON Schema 验证文件
 └── package.json           # 项目总包配置文件 (支持 root 命令一键启动)
 ```
