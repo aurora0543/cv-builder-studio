@@ -186,11 +186,145 @@ const initialResumeData = {
   self_evaluation: "精通摄神取念术与各种禁忌黑魔法，致力于突破死亡边界并重建魔法界新秩序。具备优秀的蛇腔沟通能力，擅长团队搭建（食死徒体系建设）与魂器生命保障系统的设计开发。"
 };
 
+const emptyResumeData = {
+  basic_info: {
+    name: "",
+    gender: "",
+    birth_date: "",
+    show_birth_date: true,
+    phone: "",
+    email: "",
+    github: "",
+    linkedin: "",
+    homepage: "",
+    nationality: "",
+    native_place: "",
+    residence: "",
+    political_status: "",
+    highest_education: "",
+    english_level: "",
+    id_type: "",
+    id_number: "",
+    interview_location: "",
+    source: "",
+    referral_code: "",
+    emergency_contact: ""
+  },
+  career_objective: {
+    preferred_cities: [],
+    expected_salary: "",
+    onboard_time: ""
+  },
+  education: [],
+  has_working_relatives: false,
+  has_work_experience: false,
+  has_research_papers: false,
+  has_projects: false,
+  has_student_leadership: false,
+  has_awards: false,
+  has_languages: false,
+  has_patents: false,
+  has_portfolio: false,
+  has_family: false,
+  has_self_evaluation: false,
+  projects: [],
+  student_leadership: [],
+  languages: [],
+  skills_and_certificates: [],
+  portfolio: [],
+  awards: [],
+  patents: [],
+  papers: [],
+  family_members: [],
+  self_evaluation: ""
+};
+
+const calculateProgress = (r) => {
+  let score = 0;
+  
+  // Basic info (40% total)
+  if (r?.basic_info?.name?.trim()) score += 15;
+  if (r?.basic_info?.phone?.trim()) score += 10;
+  if (r?.basic_info?.email?.trim()) score += 10;
+  if (r?.basic_info?.residence?.trim() || r?.basic_info?.highest_education?.trim()) score += 5;
+
+  // Education (20% total)
+  if (r?.education && r.education.length > 0) {
+    const firstEdu = r.education[0];
+    if (firstEdu.institution?.trim()) score += 10;
+    if (firstEdu.major?.trim()) score += 5;
+    if (firstEdu.degree?.trim()) score += 5;
+  }
+
+  // Projects (15% total)
+  if (r?.has_projects && r.projects && r.projects.length > 0) {
+    const firstProj = r.projects[0];
+    if (firstProj.name?.trim()) score += 10;
+    if (firstProj.description?.trim() || (firstProj.responsibilities && firstProj.responsibilities.length > 0)) score += 5;
+  } else if (!r?.has_projects) {
+    score += 15;
+  }
+
+  // Skills (15% total)
+  if (r?.skills_and_certificates && r.skills_and_certificates.length > 0) {
+    const firstSkill = r.skills_and_certificates[0];
+    if (firstSkill.name?.trim() || firstSkill.details?.trim()) score += 15;
+  } else if (r?.has_languages && r.languages && r.languages.length > 0) {
+    score += 15;
+  }
+
+  // Self Evaluation (10% total)
+  if (r?.has_self_evaluation && r.self_evaluation?.trim()) {
+    score += 10;
+  } else if (!r?.has_self_evaluation) {
+    score += 10;
+  }
+
+  return Math.min(100, score);
+};
+
 export default function App() {
   const [resume, setResume] = useState(initialResumeData);
   const [activeTab, setActiveTab] = useState('preview'); // preview, markdown, json, latex
   const [errors, setErrors] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  
+  const [appTheme, setAppTheme] = useState(() => {
+    return localStorage.getItem('app-theme') || 'system';
+  });
+
+  useEffect(() => {
+    const applyTheme = (theme) => {
+      if (theme === 'system') {
+        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', theme);
+      }
+    };
+
+    applyTheme(appTheme);
+    localStorage.setItem('app-theme', appTheme);
+
+    if (appTheme === 'system') {
+      const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+      const listener = (e) => {
+        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+      };
+      mediaQuery.addEventListener('change', listener);
+      return () => mediaQuery.removeEventListener('change', listener);
+    }
+  }, [appTheme]);
+
+  const progress = calculateProgress(resume);
+
+  const handleClearResume = () => {
+    if (window.confirm("确定要清空所有填写的简历内容吗？此操作不可撤销。")) {
+      setResume(emptyResumeData);
+      setIsSubmitted(false);
+      setErrors({});
+    }
+  };
   
   // Real-time styling customizer state
   const [previewTheme, setPreviewTheme] = useState('classic'); // classic, warm, academic, midnight
@@ -1207,6 +1341,26 @@ ${text}`;
         </div>
 
         <div className="header-actions">
+          {/* Theme Selector */}
+          <div className="theme-selector" style={{ display: 'flex', alignItems: 'center', gap: '6px', background: 'rgba(255,255,255,0.03)', padding: '6px 12px', borderRadius: '8px', border: '1px solid var(--glass-border)', marginRight: '10px' }}>
+            <span style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>🌓 主题:</span>
+            <select
+              style={{
+                background: 'transparent',
+                color: 'var(--text-primary)',
+                border: 'none',
+                fontSize: '13px',
+                outline: 'none',
+                cursor: 'pointer'
+              }}
+              value={appTheme}
+              onChange={(e) => setAppTheme(e.target.value)}
+            >
+              <option value="system" style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>🖥️ 跟随系统</option>
+              <option value="light" style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>☀️ 白天亮色</option>
+              <option value="dark" style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>🌙 夜晚暗色</option>
+            </select>
+          </div>
           <button className="btn btn-secondary" onClick={handleExportLaTeX}>📄 导出 LaTeX</button>
           <button className="btn btn-secondary" onClick={handleExportJSON}>📥 导出 JSON</button>
           <button className="btn btn-secondary" onClick={handleExportMarkdown}>📥 导出 Markdown</button>
@@ -1237,9 +1391,34 @@ ${text}`;
       <div className="workspace">
         {/* Form Panel */}
         <div className="panel">
-          <div className="panel-header">
+          <div className="panel-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
             <div className="panel-title">📝 编辑简历字段 (带 <span className="required-star">*</span> 为必填项)</div>
+            <button
+              className="btn btn-danger"
+              style={{ padding: '6px 12px', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '4px' }}
+              onClick={handleClearResume}
+            >
+              🗑️ 一键清空
+            </button>
           </div>
+
+          {/* Progress Bar container */}
+          <div className="progress-bar-container" style={{ padding: '12px 20px', borderBottom: '1px solid var(--glass-border)', background: 'rgba(255, 255, 255, 0.01)' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px', fontSize: '13px' }}>
+              <span style={{ color: 'var(--text-secondary)', fontWeight: '500' }}>📋 简历填写进度</span>
+              <span style={{ color: 'var(--accent-primary)', fontWeight: '700' }}>{progress}%</span>
+            </div>
+            <div style={{ height: '8px', background: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px', overflow: 'hidden' }}>
+              <div style={{
+                height: '100%',
+                width: `${progress}%`,
+                background: 'var(--accent-gradient)',
+                borderRadius: '4px',
+                transition: 'width 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
+              }} />
+            </div>
+          </div>
+
           <div className="panel-body">
             
             {/* MODULE 1: Basic Info */}
