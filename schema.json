@@ -1,0 +1,197 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "StandardResume",
+  "type": "object",
+  "properties": {
+    "basic_info": {
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "gender": { "type": "string" },
+        "birth_date": { "type": "string" },
+        "show_birth_date": { "type": "boolean" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "nationality": { "type": "string" },
+        "native_place": { "type": "string" },
+        "residence": { "type": "string" },
+        "political_status": { "type": "string" },
+        "highest_education": { "type": "string" },
+        "english_level": { "type": "string" },
+        "id_type": { "type": "string" },
+        "id_number": { "type": "string" },
+        "interview_location": { "type": "string" },
+        "source": { "type": "string" },
+        "referral_code": { "type": "string" },
+        "emergency_contact": { "type": "string" },
+        "github": { "type": "string" },
+        "linkedin": { "type": "string" },
+        "homepage": { "type": "string" }
+      }
+    },
+    "career_objective": {
+      "type": "object",
+      "properties": {
+        "preferred_cities": { "type": "array", "items": { "type": "string" } },
+        "expected_salary": { "type": "string" },
+        "onboard_time": { "type": "string" }
+      }
+    },
+    "education": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "degree": { "type": "string" },
+          "period": { "type": "string" },
+          "period_start": { "type": "string" },
+          "period_end": { "type": "string" },
+          "is_present": { "type": "boolean" },
+          "institution": { "type": "string" },
+          "enrollment_type": { "type": "string" },
+          "courses": { "type": "array", "items": { "type": "string" } },
+          "is_exchange": { "type": "boolean" },
+          "is_joint": { "type": "boolean" },
+          "major_category": { "type": "string" },
+          "major": { "type": "string" },
+          "college": { "type": "string" },
+          "ranking": { "type": "string" },
+          "gpa": { "type": "string" },
+          "location": { "type": "string" },
+          "advisor": { "type": "string" },
+          "is_key_lab": { "type": "boolean" },
+          "laboratory": { "type": "string" }
+        }
+      }
+    },
+    "has_working_relatives": { "type": "boolean" },
+    "has_work_experience": { "type": "boolean" },
+    "has_research_papers": { "type": "boolean" },
+    "has_projects": { "type": "boolean" },
+    "has_student_leadership": { "type": "boolean" },
+    "has_awards": { "type": "boolean" },
+    "has_languages": { "type": "boolean" },
+    "has_patents": { "type": "boolean" },
+    "has_portfolio": { "type": "boolean" },
+    "has_family": { "type": "boolean" },
+    "has_self_evaluation": { "type": "boolean" },
+    "has_campus_activities": { "type": "boolean" },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "period": { "type": "string" },
+          "period_start": { "type": "string" },
+          "period_end": { "type": "string" },
+          "is_present": { "type": "boolean" },
+          "role": { "type": "string" },
+          "responsibilities_summary": { "type": "string" },
+          "description": { "type": "string" },
+          "responsibilities": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "student_leadership": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "role": { "type": "string" },
+          "level": { "type": "string" },
+          "period": { "type": "string" },
+          "period_start": { "type": "string" },
+          "period_end": { "type": "string" },
+          "is_present": { "type": "boolean" },
+          "responsibilities": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "language": { "type": "string" },
+          "certificate": { "type": "string" },
+          "score": { "type": "string" }
+        }
+      }
+    },
+    "skills_and_certificates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "details": { "type": "string" }
+        }
+      }
+    },
+    "portfolio": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "url_or_description": { "type": "string" }
+        }
+      }
+    },
+    "awards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "category": { "type": "string" },
+          "period": { "type": "string" },
+          "date": { "type": "string" },
+          "level": { "type": "string" },
+          "rank": { "type": "string" }
+        }
+      }
+    },
+    "patents": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "patent_number": { "type": "string" },
+          "application_time": { "type": "string" }
+        }
+      }
+    },
+    "papers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "title": { "type": "string" },
+          "journal": { "type": "string" },
+          "author_order": { "type": "string" },
+          "publish_time": { "type": "string" },
+          "details": { "type": "string" }
+        }
+      }
+    },
+    "family_members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "birth_date": { "type": "string" },
+          "organization": { "type": "string" },
+          "role": { "type": "string" },
+          "job": { "type": "string" },
+          "phone": { "type": "string" },
+          "political_status": { "type": "string" }
+        }
+      }
+    },
+    "self_evaluation": { "type": "string" }
+  }
+}

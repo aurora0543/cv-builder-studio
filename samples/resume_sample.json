@@ -1,0 +1,197 @@
+{
+  "basic_info": {
+    "name": "伏地魔 (Voldemort)",
+    "gender": "男",
+    "birth_date": "1926-12-31",
+    "show_birth_date": true,
+    "phone": "+86 138-6666-8888",
+    "email": "voldemort@hogwarts.edu",
+    "github": "https://github.com/voldemort-darklord",
+    "linkedin": "https://linkedin.com/in/tom-riddle",
+    "homepage": "https://riddle.org",
+    "nationality": "巫师",
+    "native_place": "伦敦伍氏孤儿院",
+    "residence": "冈特老宅 (Gaunt House)",
+    "political_status": "食死徒领袖",
+    "highest_education": "黑魔法高级进修",
+    "english_level": "蛇腔 (10级 / 蛇类无障碍沟通)",
+    "id_type": "英国魔法部-巫师身份证",
+    "id_number": "666888192612310007",
+    "interview_location": "霍格沃茨城堡",
+    "source": "密室自主创业",
+    "referral_code": "DARKMARK666",
+    "emergency_contact": "纳吉尼 (Nagini) +86 139-8888-9999"
+  },
+  "career_objective": {
+    "preferred_cities": [
+      "伦敦",
+      "阿兹卡班",
+      "霍格莫德"
+    ],
+    "expected_salary": "面议 (魔法界统治权)",
+    "onboard_time": "随时召集食死徒到岗"
+  },
+  "education": [
+    {
+      "degree": "硕士学位",
+      "period_start": "1943-09",
+      "period_end": "1945-06",
+      "is_present": false,
+      "institution": "霍格沃茨魔法学校",
+      "enrollment_type": "全日制",
+      "courses": [
+        "摄神取念术",
+        "魂器制作原理",
+        "黑魔法防御术",
+        "母猪饲料营养学与产后护理"
+      ],
+      "is_exchange": false,
+      "is_joint": false,
+      "major_category": "黑魔法工程学",
+      "college": "斯莱特林学院 (蛇院)",
+      "major": "母猪的产后护理与阿瓦达索命术",
+      "ranking": "前1%",
+      "gpa": "O (优秀 / Outstanding)",
+      "location": "英国苏格兰",
+      "advisor": "Salazar Slytherin (精神导师)",
+      "is_key_lab": true,
+      "laboratory": "霍格沃茨密室联合实验室 (Chamber of Secrets)"
+    },
+    {
+      "degree": "学士学位",
+      "period_start": "1938-09",
+      "period_end": "1943-06",
+      "is_present": false,
+      "institution": "霍格沃茨魔法学校",
+      "enrollment_type": "全日制",
+      "courses": [
+        "魔药学",
+        "变形课",
+        "草药学",
+        "黑魔法历史"
+      ],
+      "is_exchange": false,
+      "is_joint": false,
+      "major_category": "魔法学",
+      "college": "斯莱特林学院 (蛇院)",
+      "major": "蛇腔大佬入门与实践",
+      "ranking": "前1%",
+      "gpa": "O (优秀)",
+      "location": "英国苏格兰",
+      "advisor": "Albus Dumbledore (变形课教授)",
+      "is_key_lab": false,
+      "laboratory": "无"
+    }
+  ],
+  "has_working_relatives": false,
+  "has_work_experience": true,
+  "has_research_papers": true,
+  "has_projects": true,
+  "has_student_leadership": true,
+  "has_awards": true,
+  "has_languages": true,
+  "has_patents": false,
+  "has_portfolio": true,
+  "has_family": false,
+  "has_self_evaluation": true,
+  "projects": [
+    {
+      "name": "基于多模态传感器融合与轻量化时序网络的智能机械故障预测系统",
+      "period_start": "2025-06",
+      "period_end": "2026-08",
+      "is_present": false,
+      "role": "毕业设计 (独立研究员)",
+      "responsibilities_summary": "主导多模态数据采集与轻量化时序网络模型设计，实现边缘网关故障 analysis 开发。",
+      "description": "针对工业物联网中旋转机械的状态监测需求，设计并开发了一套基于深度学习的多通道振动与温度信号融合诊断系统，实现轴承早期微弱故障的精准预测与健康评估。",
+      "responsibilities": [
+        "数据采集与去噪：负责多通道加速度与温度信号同步采集、小波包去噪及特征标准化。",
+        "网络模型设计：设计结合时间卷积网络 (TCN) 与自注意力机制的轻量化多源时序信号融合模型。",
+        "模型量化与部署：在 PyTorch 框架下完成网络训练，应用剪枝与 8-bit 量化技术部署于边缘网关。",
+        "分类准确度：在公开及实测数据集上实现了 10 种典型机械状态分类，平均准确率达 94.2%。"
+      ]
+    },
+    {
+      "name": "基于 RT-Thread 与多节点低功耗无线网络的智能微气候监测系统",
+      "period_start": "2025-03",
+      "period_end": "2026-06",
+      "is_present": false,
+      "role": "系统架构师与底层开发",
+      "responsibilities_summary": "负责多路传感器驱动编写、Sub-1G/LoRa 自组网协议设计及网关系统移植开发。",
+      "description": "研发面向智慧农业微气候环境的高精度、低功耗分布式监测网络，实现多节点空气温湿度、光照、土壤湿度等数据的自组网采集与云端联动。",
+      "responsibilities": [
+        "超低功耗硬件：基于低功耗 SoC 芯片自主设计多层 PCB，优化电源管理，使休眠电流降至微安级。",
+        "RTOS 驱动开发：移植 RT-Thread 实时操作系统，编写多通道 ADC、I2C 传感器及电源管理底层驱动。",
+        "自组网协议设计：编写基于 Sub-1G/LoRa 的无线协议，设计抗干扰时分多址 (TDMA) 数据上传机制。",
+        "云端系统集成：搭建 MQTT 网关，对接云端物联网平台，设计基于微信小程序的可视化系统。"
+      ]
+    }
+  ],
+  "student_leadership": [
+    {
+      "role": "男学生会主席 (Head Boy)",
+      "level": "学校级",
+      "period_start": "1942-09",
+      "period_end": "1943-06",
+      "is_present": false,
+      "responsibilities": [
+        "日常巡查管理：负责霍格沃茨级长与日常走廊巡查，维护学校秩序。",
+        "密室秘密联络：暗中联络蛇怪并启动密室清除计划，进行斯莱特林血统净化测试。"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "蛇腔 (Parseltongue)",
+      "certificate": "密室血统认证",
+      "score": "极度流利"
+    }
+  ],
+  "skills_and_certificates": [
+    {
+      "name": "黑巫术与诅咒开发",
+      "details": "熟练掌握阿瓦达索命咒、钻心剜骨咒和夺魂咒等不可饶恕咒；掌握高阶灵魂分割与魂器（Horcrux）开发移植部署能力。"
+    },
+    {
+      "name": "团队建设与组织管理",
+      "details": "创办并管理食死徒（Death Eaters）核心开发团队，设计食死徒统一皮肤（黑魔标记印记），具备强大的洗脑式企业文化建设与动员能力。"
+    },
+    {
+      "name": "蛇腔语言无障碍开发",
+      "details": "支持跨物种语言通信，实现对蛇怪等冷血动物的直接底层驱动与逻辑控制。"
+    }
+  ],
+  "portfolio": [
+    {
+      "name": "GitHub 黑魔标记发布页",
+      "url_or_description": "https://github.com/voldemort-darklord"
+    }
+  ],
+  "awards": [
+    {
+      "name": "阿瓦达索命速发大赛一等奖",
+      "category": "学术技能",
+      "date": "1943-05",
+      "level": "国际级",
+      "rank": "一等奖"
+    },
+    {
+      "name": "最具影响力黑巫师提名奖",
+      "category": "综合素质",
+      "date": "1944-09",
+      "level": "国际级",
+      "rank": "提名奖"
+    }
+  ],
+  "patents": [],
+  "papers": [
+    {
+      "title": "魂器裂分技术与灵魂七等份可行性分析报告",
+      "journal": "预言家日报学术版 (Daily Prophet Academic)",
+      "author_order": "独立作者",
+      "publish_time": "1943年06月",
+      "details": "斯莱特林密室内部期刊收录"
+    }
+  ],
+  "family_members": [],
+  "self_evaluation": "精通摄神取念术与各种禁忌黑魔法，致力于突破死亡边界并重建魔法界新秩序。具备优秀的蛇腔沟通能力，擅长团队搭建（食死徒体系建设）与魂器生命保障系统的设计开发。"
+}

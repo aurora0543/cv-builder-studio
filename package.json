@@ -1,0 +1,10 @@
+{
+  "name": "cv-builder-skill",
+  "version": "1.0.0",
+  "description": "CV Builder Skill root workspace delegating to web frontend",
+  "scripts": {
+    "dev": "npm run dev --prefix web",
+    "build": "npm run build --prefix web",
+    "preview": "npm run preview --prefix web"
+  }
+}
